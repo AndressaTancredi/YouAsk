@@ -24,15 +24,15 @@ button.addEventListener("click", (evento) => {
 
     document.querySelector(".form").reset();
 
-    fetch('https://reqres.in/api/users', {
+    fetch('http://localhost:3000/perguntas', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'usuario-name': nome,
-            'pergunta': pergunta
+            'nome': nome,
+            'perguntas': pergunta
         })
     })
     .then((response) => {

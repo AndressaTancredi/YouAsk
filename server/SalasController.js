@@ -2,6 +2,8 @@
 const { connect } = require('./SalasRepository')
 const  { SalaModel, PerguntasModel }  = require('./SalasSchema')
 
+//Preciso fazer destructuring  aqui?
+
 connect() // para conectar no mongoDB
 
   const addSalas = (sala) => {
