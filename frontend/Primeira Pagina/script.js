@@ -7,7 +7,7 @@ button.addEventListener("click", (evento) => {
     const nomeEvento = document.getElementById("event-name").value;
     const email = document.getElementById("email").value;
 
-    fetch('https://reqres.in/api/users', {
+    fetch('http://localhost:3000/salas', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -15,7 +15,7 @@ button.addEventListener("click", (evento) => {
         },
         body: JSON.stringify({
             'name': nome,
-            'event_name': nomeEvento,
+            'event-name': nomeEvento,
             'email': email,
         })
     })

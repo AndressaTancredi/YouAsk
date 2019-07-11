@@ -5,8 +5,19 @@ const servidor = express()
 const controller = require('./SalasController')
 const PORT = 3000
 
+//Midleware
+const logger = (request, response, next) => {
+  console.log(`${new Date().toISOString()} Request type: ${request.method} to ${request.originalUrl}`)
+
+  response.on('finish', () => {
+    console.log(`${response.statusCode} ${response.statusMessage};`)
+  })
+  next()
+}
+
 servidor.use(cors())
 servidor.use(bodyParser.json())
+servidor.use(logger)
 
 servidor.get('/', (request, response) => {
   response.send('Olá, mundo!')
@@ -38,20 +49,20 @@ servidor.post('/salas', (request, response) => {
 
 //POST de Perguntas - funcionando!
 servidor.post('/perguntas', (request, response) => {
-  console.log("Pergunta Feita!");
   controller.addPerguntas(request.body)
     .then(pergunta => {
-      const _id = pergunta._id
-      response.send(_id) 
+    const _id = pergunta._id
+    response.send(_id) 
+  })
+  .catch(error => {
+    if(error.name === "ValidationError"){
+    console.log(error);
+    // response.sendStatus(400) // bad request
+    } else {
+    response.sendStatus(500)
+    }
     })
-    .catch(error => {
-      if(error.name === "ValidationError"){
-        console.log(error);
-        // response.sendStatus(400) // bad request
-      } else {
-        response.sendStatus(500)
-      }
-    })
+    console.log("Pergunta Feita!");
 })
 
 //GET de Perguntas - Funcionando!

@@ -3,12 +3,12 @@ let button = document.getElementById("send_form");
 button.addEventListener("click", (evento) => {
     evento.preventDefault();
 
-    let nome = document.getElementById('name') 
-    let pergunta = document.getElementById("pergunta");
+    let nome = document.getElementById('nome')
+    let pergunta = document.getElementById("perguntas")
     // Valores Inputs
-    console.log(nome.value)
+    
     let nomeUsuario = nome.value;
-    let perguntaUsuario = pergunta.value;
+    let perguntaUsuario = pergunta.value; 
     //Tabela de Perguntas
     var linha = document.createElement("tr");
 
@@ -25,12 +25,10 @@ button.addEventListener("click", (evento) => {
 
     document.querySelector(".form").reset();
 
-    const resp = {
-        'name': nomeUsuario,
-        'perguntas': perguntaUsuario
-    }
-
-    console.log(resp)
+    // const resp = {
+    //     'name': nomeUsuario,
+    //     'perguntas': perguntaUsuario
+    // }
 
     fetch('http://localhost:3000/perguntas', {
         method: 'POST',
@@ -38,10 +36,15 @@ button.addEventListener("click", (evento) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-        'name': nomeUsuario,
-        'perguntas': perguntaUsuario
-    })
+        body: JSON.stringify({ 
+            'nome': nomeUsuario,
+            'perguntas': perguntaUsuario
+    })  
+
+        /*  body: JSON.stringify({
+        'nome': nome,
+        'perguntas': pergunta
+    })  */
     })
     .then((response) => {
         return response.json();
