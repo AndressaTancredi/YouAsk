@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>You Ask</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+    <link href="./eventoUser.css" rel="stylesheet">
+
+  </head>
+  <h1>You Ask</h1>
+  <h2 class="subtitulo"> Faça Sua Pergunta!</h2>
+  <body>
+    <div id="message"></div>
+    <div class="container">
+      <form class="form" method="POST">
+          <label for="usuario-name">Nome:</label>
+          <input type="text" name="name" id="name" />
+          <label for="pergunta">Pergunta:</label>
+          <input type="text" name="pergunta" id="pergunta" placeholder="Porque? O que é? Como fazer?"/>
+          <button id="send_form">Enviar</button>
+      </form>
+    </div>
+    <div class="extrato">
+      <h2 class="extrato__subtitle subtitle">Lista de Perguntas</h2>
+      <table class="extrato__table">
+        <thead class="extrato__header">
+            <th>Nome</th>
+            <th>Perguntas</th>
+        </thead>
+        <tbody class="extrato__body">
+            <!-- <tr> Aqui entrarão as linhas das perguntas.
+              <td> </td>
+            </tr> -->
+        </tbody>
+      </table>
+    </div>
+  <script src="./eventoUser.js"></script>
+  </body>
+</html>

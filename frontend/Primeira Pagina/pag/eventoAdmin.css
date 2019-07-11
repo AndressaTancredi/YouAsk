@@ -1,0 +1,26 @@
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #F6F6F6;
+}
+
+h1{
+    font-size: 5em;
+    color: #0BA9BA;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.extrato__table{
+    width:50%;
+    text-align: left;
+}
+
+.extrato__header th{
+    border-bottom: 1px solid #ECDDF3;
+    padding: 5px 0;
+    width: 5px;
+}
