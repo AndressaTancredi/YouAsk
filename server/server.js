@@ -12,10 +12,16 @@ servidor.get('/', (request, response) => {
   response.send('Olá, mundo!')
 })
 
+//GET de Salas - funcionando!
+servidor.get('/salas', async (request, response) => {
+  controller.getSalas()
+    .then(sala => response.send(sala))
+})
+
+//POST de Salas - funcionando!
 servidor.post('/salas', (request, response) => {
-  console.log("CHEGUEI");
-  
-  controller.add(request.body)
+  console.log("Sala Criada!");
+  controller.addSalas(request.body)
     .then(sala => {
       const _id = sala._id
       response.send(_id) 
@@ -30,12 +36,12 @@ servidor.post('/salas', (request, response) => {
     })
 })
 
+//POST de Perguntas - funcionando!
 servidor.post('/perguntas', (request, response) => {
-  console.log("Perguntas Feitas");
-  
+  console.log("Pergunta Feita!");
   controller.addPerguntas(request.body)
-    .then(sala => {
-      const _id = sala._id
+    .then(pergunta => {
+      const _id = pergunta._id
       response.send(_id) 
     })
     .catch(error => {
@@ -47,9 +53,31 @@ servidor.post('/perguntas', (request, response) => {
       }
     })
 })
+
+//GET de Perguntas - Funcionando!
 servidor.get('/perguntas', async (request, response) => {
-  controller.get()
+  controller.getPerguntas()
     .then(perguntas => response.send(perguntas))
+})
+
+//DELETE de Perguntas - Funcionando!
+servidor.delete('/perguntas/:id', (request, response) => {
+  console.log("Pergunta Deletada!");
+  controller.remove(request.params.id)
+    .then(pergunta=> {
+      if(pergunta === null || pergunta === undefined){ // if(!pergunta) 
+        response.sendStatus(404) // not found
+      } else {
+        response.sendStatus(204)
+      }
+    })
+    .catch(error => {
+      if(error.name === "CastError"){
+        response.sendStatus(400) //bad request
+      } else {
+        response.sendStatus(500)
+      } 
+    })
 })
 
 servidor.listen(PORT)

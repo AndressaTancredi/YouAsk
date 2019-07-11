@@ -1,28 +1,33 @@
 
 const { connect } = require('./SalasRepository')
 const  { SalaModel, PerguntasModel }  = require('./SalasSchema')
-//Andressa
 
 connect() // para conectar no mongoDB
 
-  const add = (sala) => {
+  const addSalas = (sala) => {
     const novaSala = new SalaModel(sala)
     return novaSala.save()
   }
+  const getSalas = () => {
+    return SalaModel.find((error, sala) => {
+      return sala
+    })
+  }
+
   const addPerguntas = (perguntas) => {
     const novaPergunta = new PerguntasModel(perguntas)
     return novaPergunta.save()
   }
 
-  const get = () => {
-    return SalaModel.find((error, perguntas) => {
+  const getPerguntas = () => {
+    return PerguntasModel.find((error, perguntas) => {
       return perguntas
     })
   }
 
-  // const remove = (id) => {
-  //   return PerguntasModel.findByIdAndDelete(id)
-  // }
+  const remove = (id) => {
+    return PerguntasModel.findByIdAndDelete(id)
+  }
   
   // const update = (id, pergunta) => {
   //   return PerguntasModel.findByIdAndUpdate(
@@ -33,7 +38,9 @@ connect() // para conectar no mongoDB
   // }
   
   module.exports = {
-    add,
+    addSalas,
     addPerguntas,
-    get
+    getPerguntas,
+    getSalas,
+    remove,
   }
