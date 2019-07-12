@@ -15,7 +15,6 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
 })
 
 // Fetch que dá um get nas perguntas:
-
 const authors = document.querySelector('.authors');
 
 fetch('http://localhost:3000/perguntas')
@@ -48,7 +47,6 @@ fetch('http://localhost:3000/perguntas')
             botao.addEventListener("click", () => {
                 const thisCard = botao.parentElement;            
                 const cardPai = thisCard.parentElement;            
-    
                 fetch("http://localhost:3000/perguntas/:id", {
                     method: 'DELETE',
                     headers:{

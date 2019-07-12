@@ -1,3 +1,21 @@
+//Me da um obj que descreve a url
+const urlParams = new URLSearchParams(window.location.search);
+const nomeDoEvento = urlParams.get('name');
+
+
+//Fetch que pega a sala criada no banco:
+fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((erro) => {
+        console.log(erro)
+})
+
+// Fetch que cria lista de perguntas
 let button = document.getElementById("send_form");
 
 button.addEventListener("click", (evento) => {
@@ -25,11 +43,6 @@ button.addEventListener("click", (evento) => {
 
     document.querySelector(".form").reset();
 
-    // const resp = {
-    //     'name': nomeUsuario,
-    //     'perguntas': perguntaUsuario
-    // }
-
     fetch('http://localhost:3000/perguntas', {
         method: 'POST',
         headers: {
@@ -40,19 +53,12 @@ button.addEventListener("click", (evento) => {
             'nome': nomeUsuario,
             'perguntas': perguntaUsuario
     })  
-
-        /*  body: JSON.stringify({
-        'nome': nome,
-        'perguntas': pergunta
-    })  */
     })
     .then((response) => {
         return response.json();
     })
     .then((data) => {
         console.log(data);
-
-        // document.getElementById("message").textContent = "Pergunta Enviada!!"
     })
     .catch((erro) => {
         console.log(erro)
