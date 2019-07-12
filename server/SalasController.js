@@ -35,15 +35,7 @@ connect() // para conectar no mongoDB
   const remove = (id) => {
     return PerguntasModel.findByIdAndDelete(id)
   }
-  
-  // const update = (id, pergunta) => {
-  //   return PerguntasModel.findByIdAndUpdate(
-  //     id,
-  //     { $set: pergunta },
-  //     { new: true },
-  //   )
-  // }
-  
+
   module.exports = {
     addSalas,
     addPerguntas,

@@ -84,12 +84,12 @@ servidor.get('/perguntas', async (request, response) => {
     .then(perguntas => response.send(perguntas))
 })
 
-//DELETE de Perguntas - Funcionando!
+//DELETE de Perguntas - Funcionando no POSTMAN nas não no FRONT
 servidor.delete('/perguntas/:id', (request, response) => {
   console.log("Pergunta Deletada!");
   controller.remove(request.params.id)
-    .then(pergunta=> {
-      if(pergunta === null || pergunta === undefined){ // if(!pergunta) 
+    .then(perguntas=> {
+      if(perguntas === null || perguntas === undefined){ // if(!pergunta) 
         response.sendStatus(404) // not found
       } else {
         response.sendStatus(204)
