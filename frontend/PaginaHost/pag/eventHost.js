@@ -33,12 +33,12 @@ fetch('http://localhost:3000/perguntas')
             authors.appendChild(card);
     
             const nome = document.createElement("h2");
-            nome.textContent = usuario.first_name +" "+ usuario.last_name;
+            nome.textContent = usuario.nome
             card.appendChild(nome);
     
-            const email = document.createElement("p");
-            email.textContent = usuario.email;
-            card.appendChild(email);
+            const pergunta = document.createElement("p");
+            pergunta.textContent = usuario.perguntas;
+            card.appendChild(pergunta);
     
             const botao = document.createElement("button");
             botao.textContent = "✖";

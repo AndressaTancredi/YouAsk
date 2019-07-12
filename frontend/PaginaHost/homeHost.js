@@ -30,7 +30,7 @@ form.addEventListener("submit", (evento) => {
     })
     .then((data) => {
         console.log(data);
-        window.location.href=`pag/eventoHost.html?name=${nomeEvento}`
+        window.location.href=`pag/eventHost.html?name=${nomeEvento}`
     })
     .catch((erro) => {
         console.log(erro)

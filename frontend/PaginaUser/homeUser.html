@@ -8,29 +8,23 @@
   <title>You Ask</title>
   
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
-  <link href="./style.css" rel="stylesheet">
+  <link href="./homeUser.css" rel="stylesheet">
 
 </head>
 <h1>You Ask</h1>
 <body>
 <div id="message"></div>
 <div class="container">
-  <form class="form" method="POST" id='event-form'>
+  <form class="form" method="GET">
       <label for="name">Nome:</label>
       <input type="text" name="name" id="name" />
       <label for="event-name">Nome do Evento:</label>
-      <input type="text" name="event-name" id="event-name" />
+      <input type="text" name="event-name" id="event-name" placeholder="PalestraNodeJS" />
       <label for="e-mail">Email:</label>
-      <input type="email" name="email" id="email" />
-      <label for="senha">Senha:</label>
-      <input type="senha" name="senha" id="senha" />
-      <button id="send_form">Criar Sala</button>
+      <input type="email" name="email" id="email" placeholder="email@exemplo.com.br"/>
+      <button id="send_form">Entrar na Sala</button>
   </form>
 </div>
-<div class="link-sala"> 
-</div>
-<script src="./script.js"></script>
+<script src="./homeUser.js"></script>
 </body>
 </html>
-
-<a href=""></a>
