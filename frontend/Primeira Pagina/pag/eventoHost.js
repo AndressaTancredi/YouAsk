@@ -2,7 +2,34 @@
 const urlParams = new URLSearchParams(window.location.search);
 const nomeDoEvento = urlParams.get('name');
 
-//fecht pro banco perguntando o nome da sala, e popula com o get de perguntas
+//Fetch que pega a sala criada no banco:
+fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((erro) => {
+        console.log(erro)
+})
+
+// Fetch que dá um get nas perguntas:
+
+const authors = document.querySelector('.authors');
+
+fetch('http://localhost:3000/perguntas')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((erro) => {
+        console.log(erro)
+})
+
+
 
 //Tabela de Perguntas
 /* var linha = document.createElement("tr");
@@ -19,17 +46,3 @@ var tabela = document.querySelector(".extrato__body")
 tabela.appendChild(linha)
 
 document.querySelector(".form").reset(); */
-
-//Preciso analisar minha api e demonstar no fornt o que eu quero demonstrar no get: uma tabela de perguntas sendo feitas pelos users
-
-fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        // document.getElementById("message").textContent = "Pergunta Enviada!!"
-    })
-    .catch((erro) => {
-        console.log(erro)
-})
