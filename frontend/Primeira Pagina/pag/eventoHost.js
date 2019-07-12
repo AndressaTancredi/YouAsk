@@ -22,27 +22,52 @@ fetch('http://localhost:3000/perguntas')
     .then((response) => {
         return response.json();
     })
-    .then((data) => {
-        console.log(data);
+    .then((data) =>{
+        console.log(data)
+        data.forEach(usuario =>{
+            console.log(usuario)
+    
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+            card.setAttribute("id", usuario.id);
+            authors.appendChild(card);
+    
+            const nome = document.createElement("h2");
+            nome.textContent = usuario.first_name +" "+ usuario.last_name;
+            card.appendChild(nome);
+    
+            const email = document.createElement("p");
+            email.textContent = usuario.email;
+            card.appendChild(email);
+    
+            const botao = document.createElement("button");
+            botao.textContent = "✖";
+            botao.setAttribute("data-id", usuario.id)
+            card.appendChild(botao)
+    
+            botao.addEventListener("click", () => {
+                const thisCard = botao.parentElement;            
+                const cardPai = thisCard.parentElement;            
+    
+                fetch("http://localhost:3000/perguntas/:id", {
+                    method: 'DELETE',
+                    headers:{
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "id": botao.getAttribute("data-id")
+                    })
+                })
+                .then(() =>{
+                    cardPai.removeChild(thisCard)
+                })
+                .catch((erro) =>{
+                    console.log(erro)
+                })
+            })
+        })
     })
-    .catch((erro) => {
+    .catch((erro) =>{
         console.log(erro)
-})
-
-
-
-//Tabela de Perguntas
-/* var linha = document.createElement("tr");
-
-var colunaNome = document.createElement("td");
-colunaNome.textContent = nomeUsuario;
-linha.appendChild(colunaNome);
-
-var colunaPergunta = document.createElement("td");
-colunaPergunta.textContent = perguntaUsuario;
-linha.appendChild(colunaPergunta);
-
-var tabela = document.querySelector(".extrato__body")
-tabela.appendChild(linha)
-
-document.querySelector(".form").reset(); */
+    })
