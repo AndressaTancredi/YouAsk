@@ -29,6 +29,19 @@ servidor.get('/salas', async (request, response) => {
     .then(sala => response.send(sala))
 })
 
+//GET por Nome - 
+servidor.get('/salas/:nomeDoEvento',(request, response) => {
+  controller.getByName(request.params.nomeDoEvento)
+    .then(sala => response.send(sala))
+        .catch(error => {
+      if(error.name === "CastError"){
+        response.sendStatus(400)
+      } else {
+        response.sendStatus(500)
+      }
+    })
+})
+
 //POST de Salas - funcionando!
 servidor.post('/salas', (request, response) => {
   console.log("Sala Criada!");

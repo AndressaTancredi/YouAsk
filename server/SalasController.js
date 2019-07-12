@@ -10,11 +10,16 @@ connect() // para conectar no mongoDB
     const novaSala = new SalaModel(sala)
     return novaSala.save()
   }
+
   const getSalas = () => {
     return SalaModel.find((error, sala) => {
       return sala
     })
   }
+
+  const getByName = (nomeDoEvento) => {
+    return SalaModel.find({nomeEvento: nomeDoEvento })
+    }
 
   const addPerguntas = (perguntas) => {
     const novaPergunta = new PerguntasModel(perguntas)
@@ -44,5 +49,6 @@ connect() // para conectar no mongoDB
     addPerguntas,
     getPerguntas,
     getSalas,
+    getByName,
     remove,
   }

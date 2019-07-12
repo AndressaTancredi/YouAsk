@@ -1,40 +1,28 @@
-let button = document.getElementById("send_form");
+//Me da um obj que descreve a url
+const urlParams = new URLSearchParams(window.location.search);
+const nomeDoEvento = urlParams.get('name');
 
-button.addEventListener("click", (evento) => {
-    evento.preventDefault();
+//fecht pro banco perguntando o nome da sala, e popula com o get de perguntas
 
-    let nome = document.getElementById('name') 
-    let pergunta = document.getElementById("pergunta");
-    // Valores Inputs
-    let nomeUsuario = nome.value;
-    let perguntaUsuario = pergunta.value;
-    //Tabela de Perguntas
-    var linha = document.createElement("tr");
+//Tabela de Perguntas
+/* var linha = document.createElement("tr");
 
-    var colunaNome = document.createElement("td");
-    colunaNome.textContent = nomeUsuario;
-    linha.appendChild(colunaNome);
+var colunaNome = document.createElement("td");
+colunaNome.textContent = nomeUsuario;
+linha.appendChild(colunaNome);
 
-    var colunaPergunta = document.createElement("td");
-    colunaPergunta.textContent = perguntaUsuario;
-    linha.appendChild(colunaPergunta);
+var colunaPergunta = document.createElement("td");
+colunaPergunta.textContent = perguntaUsuario;
+linha.appendChild(colunaPergunta);
 
-    var tabela = document.querySelector(".extrato__body")
-    tabela.appendChild(linha)
+var tabela = document.querySelector(".extrato__body")
+tabela.appendChild(linha)
 
-    document.querySelector(".form").reset();
+document.querySelector(".form").reset(); */
 
-    fetch('http://localhost:3000/perguntas', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'nome': nome,
-            'perguntas': pergunta
-        })
-    })
+//Preciso analisar minha api e demonstar no fornt o que eu quero demonstrar no get: uma tabela de perguntas sendo feitas pelos users
+
+fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
     .then((response) => {
         return response.json();
     })
@@ -44,5 +32,4 @@ button.addEventListener("click", (evento) => {
     })
     .catch((erro) => {
         console.log(erro)
-    })
 })

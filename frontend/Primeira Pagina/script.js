@@ -1,15 +1,15 @@
-const button = document.getElementById("send_form");
+const form = document.getElementById("event-form");
 
-button.addEventListener("click", (evento) => {
+form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    
+
     const nome = document.getElementById("name").value;
     const nomeEvento = document.getElementById("event-name").value;
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    console.log(nome,email,senha, nomeEvento);
+    console.log(nome,email,senha,nomeEvento);
     
     fetch('http://localhost:3000/salas', {
 
@@ -30,7 +30,7 @@ button.addEventListener("click", (evento) => {
     })
     .then((data) => {
         console.log(data);
-        document.getElementById("message").textContent = "Sala Criada!!"
+        window.location.href=`pag/eventoHost.html?name=${nomeEvento}`
     })
     .catch((erro) => {
         console.log(erro)

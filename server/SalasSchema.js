@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // cada schema equivale collection
 const Schema = mongoose.Schema;
 
-const PerguntaSchema = new Schema({ 
+const PerguntaSchema = new Schema({  
   nome: { type: String },
   perguntas: { type: String},
 });
