@@ -7,48 +7,35 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
     .then((response) => {
         return response.json();
     })
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((erro) => {
-        console.log(erro)
-})
+    .then((sala) => {
+        // Fetch que dá um get nas perguntas:
+        const authors = document.querySelector('.authors');
 
-// Fetch que dá um get nas perguntas:
-const authors = document.querySelector('.authors');
+        sala.perguntas.forEach(pergunta =>{
 
-fetch('http://localhost:3000/perguntas')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) =>{
-        console.log(data)
-        data.forEach(usuario =>{
-            console.log(usuario)
-    
             let card = document.createElement("div");
             card.setAttribute("class", "card");
-            card.setAttribute("id", usuario.id);
+            card.setAttribute("id", pergunta._id);
             authors.appendChild(card);
-    
+
             const nome = document.createElement("h2");
-            nome.textContent = usuario.nome
+            nome.textContent = pergunta.nome
             card.appendChild(nome);
-    
-            const pergunta = document.createElement("p");
-            pergunta.textContent = usuario.perguntas;
-            card.appendChild(pergunta);
-    
+
+            const perguntaParagraph = document.createElement("p");
+            perguntaParagraph.textContent = pergunta.perguntas;
+            card.appendChild(perguntaParagraph);
+
             const botao = document.createElement("button");
             botao.textContent = "✖";
-            botao.setAttribute("data-id", usuario.id)
+            botao.setAttribute("data-id", pergunta._id)
             card.appendChild(botao)
-    
+
             botao.addEventListener("click", () => {
                 const thisCard = botao.parentElement;            
                 const cardPai = thisCard.parentElement;            
-                fetch("http://localhost:3000/perguntas/:id", {
-                    method: 'DELETE',
+                fetch(`http://localhost:3000/deletaperguntas/${sala._id}/${pergunta._id}`, {
+                    method: 'PATCH',
                     headers:{
                         "Accept": "application/json",
                         "Content-Type": "application/json"
@@ -66,6 +53,7 @@ fetch('http://localhost:3000/perguntas')
             })
         })
     })
-    .catch((erro) =>{
+    .catch((erro) => {
         console.log(erro)
     })
+    // fetch(`http://localhost:3000/perguntas/${pergunta._id}

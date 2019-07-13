@@ -1,7 +1,7 @@
 //Me da um obj que descreve a url
 const urlParams = new URLSearchParams(window.location.search);
 const nomeDoEvento = urlParams.get('name');
-
+let salaID
 
 //Fetch que pega a sala criada no banco:
 fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
@@ -9,7 +9,8 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
         return response.json();
     })
     .then((data) => {
-        console.log(data);
+        console.log(data)
+        salaID = data._id
     })
     .catch((erro) => {
         console.log(erro)
@@ -43,7 +44,8 @@ button.addEventListener("click", (evento) => {
 
     document.querySelector(".form").reset();
 
-    fetch('http://localhost:3000/perguntas', {
+
+    fetch(`http://localhost:3000/salas/adicionarperguntas/${salaID}`,  {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -52,9 +54,10 @@ button.addEventListener("click", (evento) => {
         body: JSON.stringify({ 
             'nome': nomeUsuario,
             'perguntas': perguntaUsuario
-    })  
+        })  
     })
     .then((response) => {
+        console.log(response)
         return response.json();
     })
     .then((data) => {

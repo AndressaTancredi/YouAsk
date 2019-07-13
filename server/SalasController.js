@@ -18,7 +18,8 @@ connect() // para conectar no mongoDB
   }
 
   const getByName = (nomeDoEvento) => {
-    return SalaModel.find({nomeEvento: nomeDoEvento })
+    // TODO: essa solucao nao e robusta, melhorar procurando pelo (paraneaue)
+    return SalaModel.findOne({nomeEvento: nomeDoEvento })
     }
 
   const addPerguntas = (perguntas) => {
@@ -32,8 +33,32 @@ connect() // para conectar no mongoDB
     })
   }
 
-  const remove = (id) => {
+  /* const remove = (id) => {
     return PerguntasModel.findByIdAndDelete(id)
+  } */
+
+  const update = (sala_id, pergunta_id) => {
+    return SalaModel.findByIdAndUpdate(
+      { _id: sala_id },
+      { $pull: { 'sala.perguntas': { _id: pergunta_id } } }
+    )};
+
+ /*  collection.update(
+    { _id: id },
+    { $pull: { 'contact.phone': { number: '+1786543589455' } } }
+  ); */
+
+  const addPergunta = async (salaId, pergunta) => {
+    const sala = await getById(salaId)
+    const novoPergunta = new PerguntasModel(pergunta)
+  
+    sala.perguntas.push(novoPergunta)
+    return sala.save()
+  }
+
+  const getById = (salaId) => {
+
+    return SalaModel.findById(salaId)
   }
 
   module.exports = {
@@ -42,5 +67,6 @@ connect() // para conectar no mongoDB
     getPerguntas,
     getSalas,
     getByName,
-    remove,
+    update,
+    addPergunta,
   }

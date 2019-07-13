@@ -86,7 +86,6 @@ servidor.get('/perguntas', async (request, response) => {
 
 //DELETE de Perguntas - Funcionando no POSTMAN nas não no FRONT
 servidor.delete('/perguntas/:id', (request, response) => {
-  console.log("Pergunta Deletada!");
   controller.remove(request.params.id)
     .then(perguntas=> {
       if(perguntas === null || perguntas === undefined){ // if(!pergunta) 
@@ -101,6 +100,42 @@ servidor.delete('/perguntas/:id', (request, response) => {
       } else {
         response.sendStatus(500)
       } 
+    })
+})
+
+servidor.post('/salas/adicionarperguntas/:salaId', (request, response) => {
+  console.log("entrou salas controller")
+
+  const salaId = request.params.salaId
+    controller.addPergunta(salaId, request.body)
+    .then(sala => {
+      const _id = sala._id
+      response.json({ _id })
+    })
+    .catch(error => {
+      if(error.name === "ValidationError"){
+        response.sendStatus(400)
+      } else {
+        console.log(error)
+        response.sendStatus(500)
+      }
+    })
+})
+
+servidor.patch('/deletaperguntas/:sala_id/:pergunta_id', (request, response) => {
+  const sala_id = request.params.sala_id
+  const pergunta_id = request.params.pergunta_id
+  controller.update(sala_id, pergunta_id)
+    .then(treinador => {
+      if(!treinador) { response.sendStatus(404) }
+      else { response.send(treinador) }
+    })
+    .catch(error => {
+      if(error.name === "MongoError" || error.name === "CastError"){
+        response.sendStatus(400)
+      } else {
+        response.sendStatus(500)
+      }
     })
 })
 
