@@ -16,19 +16,19 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
         console.log(erro)
 })
 
-// Fetch que cria lista de perguntas
+//Fetch que cria lista de perguntas
 let button = document.getElementById("send_form");
 
 button.addEventListener("click", (evento) => {
     evento.preventDefault();
 
-    let nome = document.getElementById('nome')
-    let pergunta = document.getElementById("perguntas")
-    // Valores Inputs
+    let nome = document.getElementById('nome').value;
+    let pergunta = document.getElementById("perguntas").value;
     
-    let nomeUsuario = nome.value;
-    let perguntaUsuario = pergunta.value; 
-    //Tabela de Perguntas
+/*     let nomeUsuario = nome.value;
+    let perguntaUsuario = pergunta.value; */
+
+/*     //Tabela de Perguntas
     var linha = document.createElement("tr");
 
     var colunaNome = document.createElement("td");
@@ -40,10 +40,9 @@ button.addEventListener("click", (evento) => {
     linha.appendChild(colunaPergunta);
 
     var tabela = document.querySelector(".extrato__body")
-    tabela.appendChild(linha)
+    tabela.appendChild(linha) */
 
-    document.querySelector(".form").reset();
-
+    document.querySelector(".form-group-event-user").reset();
 
     fetch(`http://localhost:3000/salas/adicionarperguntas/${salaID}`,  {
         method: 'POST',
@@ -52,8 +51,8 @@ button.addEventListener("click", (evento) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-            'nome': nomeUsuario,
-            'perguntas': perguntaUsuario
+            'nome': nome,
+            'perguntas': pergunta
         })  
     })
     .then((response) => {

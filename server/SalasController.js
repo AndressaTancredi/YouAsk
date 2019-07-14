@@ -33,20 +33,11 @@ connect() // para conectar no mongoDB
     })
   }
 
-  /* const remove = (id) => {
-    return PerguntasModel.findByIdAndDelete(id)
-  } */
-
   const update = (sala_id, pergunta_id) => {
     return SalaModel.findByIdAndUpdate(
       { _id: sala_id },
       { $pull: { 'sala.perguntas': { _id: pergunta_id } } }
     )};
-
- /*  collection.update(
-    { _id: id },
-    { $pull: { 'contact.phone': { number: '+1786543589455' } } }
-  ); */
 
   const addPergunta = async (salaId, pergunta) => {
     const sala = await getById(salaId)
@@ -56,6 +47,14 @@ connect() // para conectar no mongoDB
     return sala.save()
   }
 
+/*   const addPergunta = async (salaId, pergunta) => {
+    const sala = await getById(salaId)
+    const novoPergunta = new PerguntasModel(pergunta)
+  
+    sala.perguntas.push(novoPergunta)
+    return sala.save()
+  }
+ */
   const getById = (salaId) => {
 
     return SalaModel.findById(salaId)

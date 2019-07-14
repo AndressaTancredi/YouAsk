@@ -1,30 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>YouAsk</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../mobile-style.css">
+    <link rel="shortcut icon" href="../img/favicon2.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <a class="navbar-brand" href="../index.html">YouAsk</a>
+          </button>
+        </nav>
+      </div>
+      <div class="container text-center">
+        <div class="row ">
+          <div class="col-md-12 col-sm-12  text-white py-2 ">
+            <h1></h1>
+            <p class="sala">Entre na Sala</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+<!--         <div id="message"></div>
+        <div class="container">
+          <form class="form" method="GET" id='event-form'>
+              <label for="name">Nome:</label>
+              <input type="text" name="name" id="name" />
+              <label for="event-name">Nome do Evento:</label>
+              <input type="text" name="event-name" id="event-name" placeholder="PalestraNodeJS" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>You Ask</title>
-  
-  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
-  <link href="./homeUser.css" rel="stylesheet">
-
-</head>
-<h1>You Ask</h1>
-<body>
-<div id="message"></div>
-<div class="container">
-  <form class="form" method="GET" id='event-form'>
-      <label for="name">Nome:</label>
-      <input type="text" name="name" id="name" />
-      <label for="event-name">Nome do Evento:</label>
-      <input type="text" name="event-name" id="event-name" placeholder="PalestraNodeJS" />
-      <label for="e-mail">Email:</label>
-      <input type="email" name="email" id="email" placeholder="email@exemplo.com.br"/>
-      <button id="send_form">Entrar na Sala</button>
-  </form>
-</div>
-<script src="./homeUser.js"></script>
-</body>
+              <label for="e-mail">Email:</label>
+              <input type="email" name="email" id="email" placeholder="email@exemplo.com.br"/>
+              <button id="send_form">Entrar na Sala</button>
+          </form>
+        </div> -->
+      <section class="section-1">
+        <div class="row"> 
+          <form class="form-group-home-user" method="POST" id='event-form'>
+            <div class="form-group" >
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" name="name" id="name">
+              </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="email@email.com">
+              <small id="emailHelp" class="form-text text-muted">Nós não vamos compartilhar seu e-mail com ninguém.</small>
+            </div>
+            <div class="form-group">
+              <label for="event-name">Nome do Evento</label>
+              <input type="text" class="form-control" id="event-name">
+            </div>
+            <button class="btn btn-primary" id="send_form">Entrar na Sala</button>
+          </form>
+        </div>
+      </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container-fluid p-0">
+        <div class="row text-left">
+          <div class="col-md-3 col-sm-3">
+            <h4 class="text-light">Sobre</h4>
+            <p class="text-muted">A YouAsk está mudando a forma pela qual a audiência interage com o apresentador.</p>
+            <p class="pt-4 text-muted">YouAsk ©2019</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="./homeUser.js"></script>
+  </body>
 </html>
+
+<!-- <main>
+  <div class="row ">
+    <div class="col-md-12 col-sm-12  text-dark py-5 ">
+      <div id="message"></div>
+      <div class="container">
+        <form class="form" method="GET" id='event-form'>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" />
+            <label for="event-name">Nome do Evento:</label>
+            <input type="text" name="event-name" id="event-name" placeholder="PalestraNodeJS" />
+            <label for="e-mail">Email:</label>
+            <input type="email" name="email" id="email" placeholder="email@exemplo.com.br"/>
+            <button id="send_form">Entrar na Sala</button>
+        </form>
+      </div>
+    </div>  
+  </div>
+</main> -->

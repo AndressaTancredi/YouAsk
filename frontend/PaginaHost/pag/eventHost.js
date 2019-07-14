@@ -1,6 +1,5 @@
-//Me da um obj que descreve a url
-const urlParams = new URLSearchParams(window.location.search);
-const nomeDoEvento = urlParams.get('name');
+const urlParams1 = new URLSearchParams(window.location.search);
+const nomeDoEvento = urlParams1.get('name');
 
 //Fetch que pega a sala criada no banco:
 fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
@@ -34,15 +33,15 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
             botao.addEventListener("click", () => {
                 const thisCard = botao.parentElement;            
                 const cardPai = thisCard.parentElement;            
-                fetch(`http://localhost:3000/deletaperguntas/${sala._id}/${pergunta._id}`, {
-                    method: 'PATCH',
-                    headers:{
-                        "Accept": "application/json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        "id": botao.getAttribute("data-id")
-                    })
+                fetch("https://reqres.in/api/users", {
+                method: 'DELETE',
+                headers:{
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "id": botao.getAttribute("data-id")
+                })
                 })
                 .then(() =>{
                     cardPai.removeChild(thisCard)
@@ -57,3 +56,27 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
         console.log(erro)
     })
     // fetch(`http://localhost:3000/perguntas/${pergunta._id}
+
+    /* fetch(`http://localhost:3000/deletaperguntas/${sala._id}/${pergunta._id}`, {
+        method: 'PATCH',
+        headers:{
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "id": botao.getAttribute("data-id")
+        })
+    })
+    .then(() =>{
+        cardPai.removeChild(thisCard)
+    })
+    .catch((erro) =>{
+        console.log(erro)
+    })
+})
+})
+})
+.catch((erro) => {
+console.log(erro)
+})
+// fetch(`http://localhost:3000/perguntas/${pergunta._id} */
