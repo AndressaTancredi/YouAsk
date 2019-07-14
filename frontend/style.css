@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,700");
+* {
+  box-sizing: border-box;
+}
+h1{
+  margin-top: 60px;
+  padding: 20px;
+  font-size: 65px !important;
+}
+.blockquote{
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px;
+
+  height: 120px;
+}
+.texto-botao{
+  color: #156864;
+}
+.blockquote-footer{
+  background-color: white;
+  height: 55x;
+}
+.btn-space{
+  margin-right: 15px;
+  margin-top: 15px;
+}
+.row{
+  padding: 0px;
+}
+.quote{
+  padding: 20px;
+
+}
+.texto{
+  font-size: 30px;
+  padding: 15px;
+  padding-bottom: 30px
+}
+
+header,
+section {
+  overflow-x: hidden;
+}
+.navbar-brand{
+  font-size: 3em;
+  color: rgb(20, 130, 145) !important;
+  font-family: 'Dosis';  
+  font-weight: 800;
+  height: 70px;
+}
+
+:root {
+  --Sniglet-font: "Sniglet", cursive;
+  --Rubik: "Rubik", cursive;
+  --Patua: "Patua One", cursive;
+  --Lobster: "lobster", cursive;
+  --light-black: #2e2c2caf;
+  --bggradient: linear-gradient(to bottom, #156864, #0a9db1);
+  --light-gray: rgba(255, 255, 255, 0.877);
+}
+
+header a {
+  font-family: var(--Sniglet-font);
+  font-size: 0.9em;
+  color: whitesmoke;
+}
+
+header .nav-item:last-child {
+  padding-right: 10.5em;
+}
+
+header .nav-item {
+  padding: 0.9em;
+}
+
+header .navbar-brand {
+  padding-left: 8rem;
+}
+
+header .nav-link:hover {
+  color: black;
+}
+
+header .row .col-md-7 {
+  text-align: center;
+  padding: 50px;
+  padding-bottom: 35vmin;
+}
+
+header .row .col-md-5 {
+  padding: 4.2vmin 1vmin;
+}
+
+header .row .col-md-5 img {
+  width: 90%;
+}
+
+header {
+  background: #ff512f;
+  /* fallback for old browsers */
+  background: var(--bggradient);
+}
+
+header .container .col-md-7 {
+  font-family: "Rubik", sans-serif;
+}
+
+header .container .col-md-7 h6 {
+  padding: 1vmin;
+  letter-spacing: 4px;
+}
+
+header .container .col-md-7 h1 {
+  font-size: 8.5vmin;
+  font-weight: bold;
+  padding: 0.1em 0em;
+}
+
+header .container .col-md-7 p {
+  padding: 1vmin 5vmin;
+}
+.navbar-brand{
+  font-size: 45px;
+}
+
+.primary-btn {
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+/********** section 1 **************/
+
+.section-1 {
+  padding: 20vmin 0vmin;
+}
+
+.section-1 .row .col-md-6 .pray img {
+  opacity: 0.8;
+  width: 80%;
+  border-radius: 0.2em;
+}
+
+.section-1 .row .col-md-6:last-child {
+  position: relative;
+}
+
+.section-1 .row .col-md-6 .panel {
+  position: absolute;
+  top: 7vmin;
+  left: -18vmin;
+  background: white;
+  border-radius: 3px;
+  text-align: left;
+  padding: 13vmin 5vmin 20vmin 10vmin;
+  box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+  font-family: var(--Rubik);
+  z-index: 1;
+}
+
+.section-1 .row .col-md-6 .panel h1 {
+  font-weight: bold;
+  padding: 0.4em 0;
+  font-size: 2em;
+}
+
+.section-1 .row .col-md-6 .panel p {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* CARDS */
+
+
+.section-4 .team {
+  padding: 0px 0vmin;
+}
+.section-4 .card {
+  width: 22em;
+  margin-top: 2vmin; 
+}
+
+.section-4 .card .card-text {
+  padding: 0.5em;
+}
+
+.section-4 .card-body > a {
+  font-size: 1.5em;
+}
+
+.section-4 .carousel-item {
+  padding-left: 3rem;
+}
+
+
+
+footer {
+  background: rgba(0, 0, 0, 0.815);
+  overflow-x: hidden;
+  margin-top: 50px;
+  padding: 20px 100px;
+}
