@@ -39,8 +39,8 @@ connect() // para conectar no mongoDB
       { $pull: { 'sala.perguntas': { _id: pergunta_id } } }
     )};
 
-  const addPergunta = async (salaId, pergunta) => {
-    const sala = await getById(salaId)
+  const addPergunta = async (salaName, pergunta) => {
+    const sala = await getByName(salaName)
     const novoPergunta = new PerguntasModel(pergunta)
   
     sala.perguntas.push(novoPergunta)
@@ -68,4 +68,5 @@ connect() // para conectar no mongoDB
     getByName,
     update,
     addPergunta,
+    getById
   }

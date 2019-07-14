@@ -103,14 +103,14 @@ servidor.delete('/perguntas/:id', (request, response) => {
     })
 })
 
-servidor.post('/salas/adicionarperguntas/:salaId', (request, response) => {
+servidor.post('/salas/adicionarperguntas/:salaName', (request, response) => {
   console.log("entrou salas controller")
 
-  const salaId = request.params.salaId
-    controller.addPergunta(salaId, request.body)
+  const salaName = request.params.salaName
+    controller.addPergunta(salaName, request.body)
     .then(sala => {
-      const _id = sala._id
-      response.json({ _id })
+      const nomeDaSala = sala.nomeDoEvento
+      response.send({ nomeDaSala })
     })
     .catch(error => {
       if(error.name === "ValidationError"){
