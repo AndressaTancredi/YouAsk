@@ -5,6 +5,8 @@ const servidor = express()
 const controller = require('./SalasController')
 const PORT = 3000
 
+servidor.disable('etag');
+
 //Midleware
 const logger = (request, response, next) => {
   console.log(`${new Date().toISOString()} Request type: ${request.method} to ${request.originalUrl}`)
@@ -28,7 +30,6 @@ servidor.get('/salas', async (request, response) => {
   controller.getSalas()
     .then(sala => response.send(sala))
 })
-
 //GET por Nome - 
 servidor.get('/salas/:nomeDoEvento',(request, response) => {
   controller.getByName(request.params.nomeDoEvento)
@@ -40,9 +41,10 @@ servidor.get('/salas/:nomeDoEvento',(request, response) => {
         response.sendStatus(500)
       }
     })
-})
+    })
 
-//POST de Salas - funcionando!
+  
+  //POST de Salas - funcionando!
 servidor.post('/salas', (request, response) => {
   console.log("Sala Criada!");
   controller.addSalas(request.body)
@@ -121,7 +123,6 @@ servidor.post('/salas/adicionarperguntas/:salaName', (request, response) => {
       }
     })
 })
-
 servidor.patch('/deletaperguntas/:sala_id/:pergunta_id', (request, response) => {
   const sala_id = request.params.sala_id
   const pergunta_id = request.params.pergunta_id

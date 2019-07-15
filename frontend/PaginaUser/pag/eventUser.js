@@ -10,11 +10,12 @@ fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
     })
     .then((data) => {
         console.log(data)
-        salaName = data.salaName
+        salaName = data.nomeEvento
     })
     .catch((erro) => {
         console.log(erro)
 })
+
 //Fetch que cria lista de perguntas
 let button = document.getElementById("send_form");
 
@@ -23,7 +24,8 @@ button.addEventListener("click", (evento) => {
 
     let nome = document.getElementById('nome').value;
     let pergunta = document.getElementById("perguntas").value;
-    console.log(nome,pergunta);
+
+    console.log(typeof(nome,pergunta));
     
     document.querySelector(".form-group-event-user").reset();
 
@@ -33,15 +35,14 @@ button.addEventListener("click", (evento) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             'nome': nome,
-            'perguntas': pergunta
+            'perguntas': pergunta,
         })  
-    })
+    }) 
     .then((response) => {
         console.log(nome,pergunta);
         console.log(response)
-        return response.json();
     })
     .then((data) => {
         console.log(data);

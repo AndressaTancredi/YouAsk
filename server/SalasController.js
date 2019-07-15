@@ -27,6 +27,7 @@ connect() // para conectar no mongoDB
     return novaPergunta.save()
   }
 
+
   const getPerguntas = () => {
     return PerguntasModel.find((error, perguntas) => {
       return perguntas
@@ -46,7 +47,6 @@ connect() // para conectar no mongoDB
     sala.perguntas.push(novoPergunta)
     return sala.save()
   }
-
 /*   const addPergunta = async (salaId, pergunta) => {
     const sala = await getById(salaId)
     const novoPergunta = new PerguntasModel(pergunta)

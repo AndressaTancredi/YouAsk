@@ -1,6 +1,6 @@
-const button = document.getElementById("event-form");
+const form = document.getElementById("event-form");
 
-button.addEventListener("click", (evento) => {
+form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
 
@@ -9,7 +9,7 @@ button.addEventListener("click", (evento) => {
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    console.log(nome,email,senha,nomeEvento);
+    console.log(typeof(nome,email,senha,nomeEvento));
     
     fetch('http://localhost:3000/salas', {
 
@@ -36,7 +36,6 @@ button.addEventListener("click", (evento) => {
         console.log(erro)
     })
 })
-
 /* const form = document.getElementById("event-form");
 
 form.addEventListener("submit", (evento) => {
