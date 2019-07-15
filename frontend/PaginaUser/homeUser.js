@@ -1,11 +1,10 @@
 const form = document.getElementById("event-form");
-/* let nomeEvento = document.getElementById("event-name").value;
- */
+
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     let nomeEvento = document.getElementById("event-name").value;
-    fetch('http://localhost:3000/salas')
+    fetch('http://localhost:8080/salas')
 
     .then((response) => {
         console.log(response);
@@ -20,9 +19,3 @@ form.addEventListener("submit", (evento) => {
         console.log(erro)
     })
 })
-/* 
-const nome = document.getElementById("name").value;
-const nomeEvento = document.getElementById("event-name").value;
-const email = document.getElementById('email').value;
-
-console.log(nome,email,senha,nomeEvento); */

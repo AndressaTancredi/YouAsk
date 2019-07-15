@@ -29,7 +29,7 @@ button.addEventListener("click", (evento) => {
     
     document.querySelector(".form-group-event-user").reset();
 
-    fetch(`http://localhost:3000/salas/adicionarperguntas/${salaName}`,  {
+    fetch(`http://localhost:8080/salas/adicionarperguntas/${salaName}`,  {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -51,20 +51,3 @@ button.addEventListener("click", (evento) => {
         console.log(erro)
     })
 })
-
-/*     let nomeUsuario = nome.value;
-    let perguntaUsuario = pergunta.value; */
-
-/*     //Tabela de Perguntas
-    var linha = document.createElement("tr");
-
-    var colunaNome = document.createElement("td");
-    colunaNome.textContent = nomeUsuario;
-    linha.appendChild(colunaNome);
-
-    var colunaPergunta = document.createElement("td");
-    colunaPergunta.textContent = perguntaUsuario;
-    linha.appendChild(colunaPergunta);
-
-    var tabela = document.querySelector(".extrato__body")
-    tabela.appendChild(linha) */

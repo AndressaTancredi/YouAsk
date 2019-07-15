@@ -23,10 +23,18 @@ img {
   max-width: 100%;
 }
 h2, h3 {
+  font-size: 25px;
   text-transform: capitalize;
 }
 p, h2, h3 {
   margin: 0;
+}
+p{
+  font-size: 18px;
+}
+.section-10{
+  padding-top: 50px;
+  padding-bottom: 60px;
 }
 .authors {
   display: flex;
@@ -40,7 +48,7 @@ p, h2, h3 {
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
-  background-color: #FF5964;
+  background: linear-gradient(to bottom, #156864, #0a9db1);
   text-align: center;
   color: #FFFFFF;
   transition: ease-in-out 0.5s;
@@ -62,7 +70,7 @@ button{
   background: none;
   border: none;
   color: white;
-  font-size: 2em;
+  font-size: 20px;
 }
 @media screen and (min-width: 600px) {
   .card {
@@ -75,11 +83,11 @@ button{
   }
 }
 .card:nth-child(2n) {
-  background-color: #35A7FF;
+  background: linear-gradient(to bottom, #156864, #0a9db1);
 }
 .card:nth-child(4n) {
-  background-color: #E5D044;
+  background: linear-gradient(to bottom, #156864, #0a9db1);
 }
 .card:nth-child(5n) {
-  background-color: #38618C;
+  background: linear-gradient(to bottom, #156864, #0a9db1);
 }
