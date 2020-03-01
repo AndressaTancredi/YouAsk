@@ -4,7 +4,7 @@ form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     let nomeEvento = document.getElementById("event-name").value;
-    fetch('http://localhost:8080/salas')
+    fetch('http://localhost:3000/salas')
 
     .then((response) => {
         console.log(response);

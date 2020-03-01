@@ -10,7 +10,7 @@ form.addEventListener("submit", (evento) => {
 
     console.log(typeof(nome,email,senha,nomeEvento));
     
-    fetch('http://localhost:8080/salas', {
+    fetch('http://localhost:3000/salas', {
 
         method: 'POST',
         headers: {

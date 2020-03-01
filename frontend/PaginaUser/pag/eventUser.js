@@ -29,7 +29,7 @@ button.addEventListener("click", (evento) => {
     
     document.querySelector(".form-group-event-user").reset();
 
-    fetch(`http://localhost:8080/salas/adicionarperguntas/${salaName}`,  {
+    fetch(`http://localhost:3000/salas/adicionarperguntas/${salaName}`,  {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
