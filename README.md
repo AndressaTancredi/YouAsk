@@ -18,9 +18,4 @@ Clique em **SOU CONVIDADO**, coloque seus dados e o nome do evento que o host te
 
 `NodeJS v10.15.3 | MongoDB | Pacotes listados em package.json.`
 
-### Deploy: ### 
-
-`Foi usado uma instância EC2 (Servidor Virtual) na AWS, rodando Amazon Linux e Nginx como web server.`
-
-### Autora: ### 
-Andressa Tancredi - 2019
+@ Andressa Tancredi - 2019
