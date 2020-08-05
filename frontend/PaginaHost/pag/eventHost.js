@@ -1,7 +1,7 @@
 const urlParams1 = new URLSearchParams(window.location.search);
 const nomeDoEvento = urlParams1.get('name');
 //Fetch que pega a sala criada no banco:
-fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
+fetch(`http://localhost:8080/salas/${nomeDoEvento}`)
     .then((response) => {
         return response.json();
     })

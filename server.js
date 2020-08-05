@@ -3,7 +3,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const servidor = express()
 const controller = require('./SalasController')
-const PORT = 3000
+const path = require("path");
+const PORT = 8080
 
 servidor.disable('etag');
 
@@ -21,8 +22,14 @@ servidor.use(cors())
 servidor.use(bodyParser.json())
 servidor.use(logger)
 
+servidor.use(express.static(path.join(__dirname, 'frontend')));
+servidor.use("/css", express.static(__dirname + '/css'));
+servidor.use("/img", express.static(__dirname + '/img'));
+servidor.use("/js", express.static(__dirname + '/js'));
+servidor.use("/pag", express.static(__dirname + '/pag'));
+
 servidor.get('/', (request, response) => {
-  response.send('Olá, mundo!')
+  response.sendFile('index.html', { root: 'frontend' })
 })
 
 //GET de Salas - funcionando!
@@ -30,6 +37,7 @@ servidor.get('/salas', async (request, response) => {
   controller.getSalas()
     .then(sala => response.send(sala))
 })
+
 //GET por Nome - 
 servidor.get('/salas/:nomeDoEvento',(request, response) => {
   controller.getByName(request.params.nomeDoEvento)

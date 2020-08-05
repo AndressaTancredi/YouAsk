@@ -4,7 +4,7 @@ const nomeDoEvento = urlParams.get('name');
 let salaName
 
 //Fetch que pega a sala criada no banco:
-fetch(`http://localhost:3000/salas/${nomeDoEvento}`)
+fetch(`http://localhost:8080/salas/${nomeDoEvento}`)
     .then((response) => {
         return response.json();
     })
@@ -29,7 +29,7 @@ button.addEventListener("click", (evento) => {
     
     document.querySelector(".form-group-event-user").reset();
 
-    fetch(`http://localhost:3000/salas/adicionarperguntas/${salaName}`,  {
+    fetch(`http://localhost:8080/salas/adicionarperguntas/${salaName}`,  {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
