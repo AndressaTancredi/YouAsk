@@ -2,7 +2,7 @@
 Projeto Final do curso Backend Reprograma no qual criei uma plataforma que visa a interação de um apresentador em um evento com sua audiência através de perguntas feitas nominal ou anonimamente por essa audiência.
 
 #### Para acessar:
-Com o node e mongodb instalados, dê npm start no terminal e abra localhost:3000.
+Com o node e mongodb instalados, dê npm install e depois npm start no terminal e abra localhost:8080.
 
 * Para criar uma sala:
 
