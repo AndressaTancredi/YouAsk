@@ -1,16 +1,16 @@
 # YouAsk
-Projeto Final do curso Backend Reprograma no qual criei uma plataforma que visa a interação de um apresentador em um evento com sua audiência através de perguntas feitas nominal ou anonimamente por essa audiência.
+Final project for the Backend Reprograma course in which I created a platform aimed at facilitating interaction between a presenter at an event and their audience through questions asked either with names or anonymously.
 
-#### Para acessar:
-Com o node e mongodb instalados, dê npm install e depois npm start no terminal e abra localhost:8080.
+#### Access:
+With Node.js and MongoDB installed, run npm install and then npm start in the terminal and open localhost:8080 in your web browser.
 
-* Para criar uma sala:
+* To create a room:
 
-Clique em **SOU HOST**, coloque seus dados e o nome do evento, compartilhe esse nome do evento com sua audiência, espere que eles façam as perguntas e atualize a página para receber as perguntas na tela.
+Click on **I AM THE HOST**, enter your details and the event name, share this event name with your audience, wait for them to ask questions, and refresh the page to see the questions on the screen.
 
-* Para fazer perguntas:
+* To ask questions:
 
-Clique em **SOU CONVIDADO**, coloque seus dados e o nome do evento que o host te forneceu, escolha colocar seu nome ou não e faça sua pergunta. Ela aparecerá na tela do host do evento.
+Click on **I AM A GUEST**, enter your details and the event name provided by the host, choose whether to include your name or not, and ask your question. It will appear on the host's screen at the event.
 
 ### Stack: ###
 
@@ -18,4 +18,4 @@ Clique em **SOU CONVIDADO**, coloque seus dados e o nome do evento que o host te
 
 `NodeJS v10.15.3 | MongoDB | Pacotes listados em package.json.`
 
-@ Andressa Tancredi - 2019
+Made with ❤ by Andressa Tancredi.
