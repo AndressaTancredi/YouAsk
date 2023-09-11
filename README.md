@@ -1,6 +1,11 @@
 # YouAsk
 Final project for the Backend Reprograma course in which I created a platform aimed at facilitating interaction between a presenter at an event and their audience through questions asked either with names or anonymously.
 
+Access the link => [YouAsk Link](https://andressatancredi.github.io/YouAsk/)
+
+
+![Screenshot 2023-09-11 at 18 53 33](https://github.com/AndressaTancredi/YouAsk/assets/48730376/da4b196b-85db-4521-94da-21c8d1d10c26)
+
 #### Access:
 With Node.js and MongoDB installed, run npm install and then npm start in the terminal and open localhost:8080 in your web browser.
 
